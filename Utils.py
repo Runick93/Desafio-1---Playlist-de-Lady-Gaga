@@ -112,7 +112,7 @@ def Buscar_Por_Codigo(playlist:list, codigo_pedido:str) -> int:
     
     return indice_tema
 
-def Buscar_Por_Colaborador(playlist:list, nombre_colaborador:str) -> int:
+def Buscar_Por_Colaborador(playlist:list, nombre_colaborador:str) -> list:
     
     indices_tema= []
 
@@ -127,7 +127,19 @@ def Buscar_Por_Colaborador(playlist:list, nombre_colaborador:str) -> int:
     
     return indices_tema
 
+def Buscar_Por_Mes_Lanzamiento(playlist:list, mes_lanzamiento:str) -> list:
     
+    indices_tema= []
+
+    for i in range(len(playlist)):
+        colaboradores = playlist[i]["fechaLanzamiento"]
+        fecha = colaboradores.split("-")
+        
+        if fecha[1] == mes_lanzamiento:
+            indices_tema.append(i) 
+    
+    return indices_tema
+
 # Imprimir
 def Imprimir_Diccionario(diccionario: dict):
     keys = list(diccionario.keys())

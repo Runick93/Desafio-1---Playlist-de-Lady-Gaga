@@ -77,8 +77,14 @@ def Listar_Por_Colaborador(playlist:list, nombre_colaborador:str):
             Utils.Imprimir_Diccionario(playlist[i])
     else:
         print(f"No se encontro el colaborador '{nombre_colaborador}'")
-    print()
 
 # 9                         
-def Listar_Por_Mes_Lanzamiento():
-    print()                                
+def Listar_Por_Mes_Lanzamiento(playlist:list, mes_lanzamiento:str):
+    indices = Utils.Buscar_Por_Mes_Lanzamiento(playlist, mes_lanzamiento)
+
+    if not len(indices) < 0:
+        for i in range(len(indices)):
+            Utils.Imprimir_Diccionario(playlist[i])
+    else:
+        print(f"No se encontro ningun lanzamiento para el mes '{mes_lanzamiento}'")
+                              
